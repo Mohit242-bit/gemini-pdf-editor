@@ -3,6 +3,7 @@ import tempfile
 import streamlit as st
 import pdfkit
 import markdown
+import platform
 from PyPDF2 import PdfReader
 from dotenv import load_dotenv
 from google.generativeai import configure, GenerativeModel
@@ -13,8 +14,11 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 configure(api_key=GOOGLE_API_KEY)
 model = GenerativeModel("gemini-1.5-flash-latest")
 
-# Configure wkhtmltopdf path
-config = pdfkit.configuration(wkhtmltopdf=r"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
+# OS-aware wkhtmltopdf config
+if platform.system() == "Windows":
+    config = pdfkit.configuration(wkhtmltopdf=r"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
+else:
+    config = pdfkit.configuration()  # Let it auto-detect on Linux/Streamlit Cloud
 
 st.set_page_config(page_title="Gemini PDF Editor", layout="wide")
 st.title("📄 AI PDF Editor using Gemini ✨")
