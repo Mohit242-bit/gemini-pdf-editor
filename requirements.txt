@@ -1,0 +1,8 @@
+streamlit
+markdown
+pdfkit
+python-dotenv
+PyMuPDF
+google-generativeai
+PyPDF2
+
