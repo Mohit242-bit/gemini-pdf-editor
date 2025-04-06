@@ -16,9 +16,9 @@ model = GenerativeModel("gemini-1.5-flash-latest")
 
 # OS-aware wkhtmltopdf config
 if platform.system() == "Windows":
-    config = pdfkit.configuration(wkhtmltopdf="/usr/bin/wkhtmltopdf")
+    config = pdfkit.configuration(wkhtmltopdf=r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
 else:
-    config = pdfkit.configuration()  # Let it auto-detect on Linux/Streamlit Cloud
+    config = pdfkit.configuration(wkhtmltopdf="/usr/bin/wkhtmltopdf")
 
 st.set_page_config(page_title="Gemini PDF Editor", layout="wide")
 st.title("📄 AI PDF Editor using Gemini ✨")
