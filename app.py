@@ -16,7 +16,7 @@ model = GenerativeModel("gemini-1.5-flash-latest")
 
 # OS-aware wkhtmltopdf config
 if platform.system() == "Windows":
-    config = pdfkit.configuration(wkhtmltopdf=r"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
+    config = pdfkit.configuration(wkhtmltopdf="/usr/bin/wkhtmltopdf")
 else:
     config = pdfkit.configuration()  # Let it auto-detect on Linux/Streamlit Cloud
 
