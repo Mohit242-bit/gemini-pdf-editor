@@ -3,5 +3,6 @@ markdown
 pdfkit
 python-dotenv
 PyMuPDF
-google-generativeai
 PyPDF2
+google-generativeai
+
