@@ -1,8 +1,9 @@
 streamlit
-markdown
 pdfkit
+markdown
+platformdirs
 python-dotenv
-PyMuPDF
 PyPDF2
 google-generativeai
+reportlab
 
